@@ -1,23 +1,53 @@
 import React from "react";
+import Link from "next/link";
+import dayjs from "dayjs";
+import { ethers } from "ethers";
+import { Url } from "next/dist/shared/lib/router/router";
 
-const TxCard = () => {
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
+
+interface ITxCardProps {
+	tx: Tx;
+}
+
+const TxCard: React.FC<ITxCardProps> = ({ tx }) => {
+	const formatTime = (timestamp: string) => {
+		// @ts-expect-error
+		return `${dayjs(timestamp).fromNow(true)} ago | ${dayjs(
+			timestamp
+		)}`;
+	};
+
+	const formatAmount = (value: string) => {
+		return `${ethers.formatEther(value)}`;
+	};
+
+	const getTxDetailsPath = (): Url => {
+		return `/txDetails/${tx.tx_hash}?from=${tx.from_address}&to=${tx.to_address}&successful=${tx.successful}&gas=${tx.gas_spent}&prettyGas=${tx.pretty_gas_quote}&value=${tx.value}&prettyValue=${tx.pretty_value_quote}`;
+	};
 	return (
 		<>
-			<tr className='hover:bg-gray-50'>
+			<tr
+				className='hover:bg-gray-50'
+				// key={`${tx.tx_hash}-${sortBy}`}
+			>
 				<td className='px-6 py-4 whitespace-nowrap'>
 					<div className='flex items-center'>
-						<div className='text-sm font-medium text-gray-900'>
-							0x8a1b3dbe6301650442bf...
-						</div>
+						<Link
+							href={getTxDetailsPath()}
+							className='text-sm font-medium text-primary hover:text-primaryDark max-w-1/4'>
+							{tx.tx_hash}
+						</Link>
 					</div>
 				</td>
 				<td className='px-6 py-4 whitespace-nowrap'>
 					<div className='text-sm text-gray-900'>
-						0.02731812 ETH
+						{formatAmount(tx.value)}
 					</div>
 				</td>
 				<td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
-					3 days ago
+					{formatTime(tx.block_signed_at)}
 				</td>
 			</tr>
 		</>

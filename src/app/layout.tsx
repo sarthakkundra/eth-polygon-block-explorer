@@ -11,6 +11,7 @@ import config from "../../wagmiConfig";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 
 import "@rainbow-me/rainbowkit/styles.css";
+import Navbar from "@/components/standalone/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
 				<WagmiProvider config={config}>
 					<QueryClientProvider client={queryClient}>
 						<RainbowKitProvider>
+							<Navbar />
 							{children}
 						</RainbowKitProvider>
 					</QueryClientProvider>
