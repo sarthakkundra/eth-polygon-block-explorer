@@ -37,11 +37,11 @@ const TxTable: React.FC<ITxTableProps> = ({ data }) => {
 					<div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
 						<div className='shadow overflow-hidden border-b border-[#1D1E28] sm:rounded-lg'>
 							<table className='min-w-full divide-y divide-[#1D1E28]'>
-								<thead className='bg-gray-50'>
+								<thead className='bg-black'>
 									<tr>
 										<th
 											scope='col'
-											className='px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider'>
+											className='px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider '>
 											Transactions
 										</th>
 										<th

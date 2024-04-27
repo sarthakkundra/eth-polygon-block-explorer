@@ -64,6 +64,14 @@ export default function Page() {
 		}
 	}, [data]);
 
+	if (!account?.address) {
+		return (
+			<p className='text-gray-500 text-lg mt-16 w-full flex justify-center'>
+				Connect wallet to Ethereum / Polygon to continue
+			</p>
+		);
+	}
+
 	return (
 		<main className='bg-black min-h-screen min-w-screen flex justify-center'>
 			{isPending && (

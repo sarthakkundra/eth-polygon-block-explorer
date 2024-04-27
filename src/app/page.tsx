@@ -13,7 +13,7 @@ export default function Home() {
 			account?.chainId !== POLYGON_CHAIN_ID)
 	) {
 		return (
-			<p className='text-white text-lg mt-16'>
+			<p className='text-white text-lg mt-16 w-full flex justify-center'>
 				Please connect wallet to Ethereum / Polygon to
 				continue.
 			</p>
@@ -22,7 +22,7 @@ export default function Home() {
 
 	if (account.address && !account?.chainId) {
 		return (
-			<p className='text-white text-lg mt-16'>
+			<p className='text-white text-lg mt-16 w-full flex justify-center'>
 				Configuring Chain.....
 			</p>
 		);

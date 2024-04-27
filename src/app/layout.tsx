@@ -28,12 +28,14 @@ export default function RootLayout({
 	const queryClient = new QueryClient();
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body className={`${inter.className} bg-black`}>
 				<WagmiProvider config={config}>
 					<QueryClientProvider client={queryClient}>
 						<RainbowKitProvider>
-							<Navbar />
-							{children}
+							<main className='bg-black min-h-screen min-w-screen'>
+								<Navbar />
+								{children}
+							</main>
 						</RainbowKitProvider>
 					</QueryClientProvider>
 				</WagmiProvider>

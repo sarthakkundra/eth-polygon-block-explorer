@@ -52,7 +52,7 @@ export default function Page() {
 									</button>
 								</>
 							) : (
-								<span className='text-md font-medium text-gray-800 break-all'>
+								<span className='text-md font-medium text-gray-300 break-all'>
 									{/* @ts-expect-error */}
 									{transaction[key]}
 								</span>

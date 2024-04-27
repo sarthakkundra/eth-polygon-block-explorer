@@ -29,7 +29,7 @@ const TxCard: React.FC<ITxCardProps> = ({ tx }) => {
 	return (
 		<>
 			<tr
-				className='hover:bg-gray-50'
+				className='hover:bg-gray-900 bg-black'
 				// key={`${tx.tx_hash}-${sortBy}`}
 			>
 				<td className='px-6 py-4 whitespace-nowrap'>
@@ -42,7 +42,7 @@ const TxCard: React.FC<ITxCardProps> = ({ tx }) => {
 					</div>
 				</td>
 				<td className='px-6 py-4 whitespace-nowrap'>
-					<div className='text-sm text-gray-900'>
+					<div className='text-sm text-gray-500'>
 						{formatAmount(tx.value)}
 					</div>
 				</td>
